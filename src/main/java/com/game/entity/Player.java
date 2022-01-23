@@ -7,25 +7,29 @@ import java.util.Date;
 public class Player {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-   private Long id;
+    @Column(name = "id")
+    private Long id; //ID игрока
     @Column(name = "name")
-   private String name;
+    private String name; //Имя персонажа (до 12 знаков включительно)
     @Column(name = "title")
-   private String title;
+    private String title; //Титул персонажа (до 30 знаков включительно)
+    @Enumerated(EnumType.STRING)
     @Column(name = "race")
-   private Race race;
+    private Race race; //Расса персонажа
+    @Enumerated(EnumType.STRING)
     @Column(name = "profession")
-   private Profession profession;
+    private Profession profession; //Профессия персонажа
     @Column(name = "experience")
-   private Integer experience;
+    private Integer experience; //Опыт персонажа. Диапазон значений 0..10,000,000
     @Column(name = "level")
-   private Integer level;
+    private Integer level; //Уровень персонажа
     @Column(name = "untilNextLevel")
-   private Integer untilNextLevel;
+    private Integer untilNextLevel; //Остаток опыта до следующего уровня
     @Column(name = "birthday")
-   private Date birthday;
+    private Date birthday; //Дата регистрации
+    //Диапазон значений года 2000..3000 включительно
     @Column(name = "banned")
-   private Boolean banned;
+    private Boolean banned;
 
     public Long getId() {
         return id;
